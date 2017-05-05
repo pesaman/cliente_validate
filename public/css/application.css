@@ -1,0 +1,112 @@
+.container {
+  margin: 0 auto;
+  width: 768px;
+  background-color: #ececec;
+}
+header {
+ margin: 1px -250px 30px -240px;
+  background-color: black;
+  padding: 1px 100px 8px 900px;
+}
+th {
+  text-align: left;
+}
+
+h1 {
+    text-align: left;
+    font-size: 200%;
+    color: #F08080;
+    font-family: "Times New Roman", Times, serif;
+}
+
+h3 {
+    text-align: left;
+    font-size: 130%;
+    color: #F08080;
+    font-family: "Times New Roman", Times, serif;
+}
+
+h4 {
+    text-align: left;
+    font-size: 150%;
+    font-family: "Times New Roman", Times, serif;
+}
+
+div #slot-machine {
+  width: 306px;
+  height: 331px;
+  background: url("../mono.jpg") no-repeat;
+  margin: 0 auto;
+  
+}
+
+
+
+#iniciar {
+   margin: 1% 5% 5% 30%;
+
+}
+ #continue_l {
+margin: 1% 5% 5% 6%;
+
+}
+
+ #continue_s {
+margin: 1% 5% 5% 6%;
+
+}
+
+form, fieldset {
+
+  margin: 5% 20%;
+  font-family: "Trebuchet MS", Geneva, Arial, Helvetica, sans-serif;
+}
+
+.warning {
+  margin: 20px auto;
+  display: block;
+  border: none;
+  color : black;
+  text-align: center;
+  font-weight: 400;
+  font-size: 18px;
+  background-color: #FFBABA;
+  width: 600px;
+}
+.correct {
+  margin: 20px auto;
+  display: block;
+  border: none;
+  color : black;
+  text-align: center;
+  font-weight: 400;
+  font-size: 18px;
+  background-color: #98FB98;
+  width: 600px;
+}
+
+
+.caja {
+ width: 86%;
+ height: 5%;
+ margin: 10% 5% 10% 5%;
+font-family: sans-serif;
+font-size: 18px;
+font-weight: 400;
+background:#D3D3D3;
+
+}
+
+tr, th {
+ width: 50%;
+ height: 5%;
+}
+th {
+   
+    font-size: 150%;
+    color: green;
+  background-color: black;
+}
+ table, td, h3   {
+ background-color: #D3D3D3;
+ }

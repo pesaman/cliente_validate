@@ -1,0 +1,16 @@
+<header>
+  <h1><p> <%=  current_user.email %></p></h1>
+  <a href="/logout" ><button id="logaut" type="button" id="gt">log Out</button></a>
+  <a href="/user_profile" ><button id="perfil" type="button">Perfil</button></a>
+  <a href="/home" ><button id="sesion" type="button">Regresar</button></a>
+</header>
+
+<h1>Survey:  <%= @survey.survey_name %></h1>
+
+<% @survey.questions.each do |question| %>
+  <p> Pregunta:  <%= question.question_name %></p>
+  <% question.answer_options.each do |answer| %>
+    <p style="text-indent: 50px;"> * <%= answer.option_name %> </p>
+  <% end %>
+  <br>
+<% end %>

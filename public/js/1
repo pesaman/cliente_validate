@@ -1,0 +1,17 @@
+ $( "#form_questions" ).on( "submit", function( event ) {
+    event.preventDefault();
+    //valueForm =  $(this).serialize();
+    surveyId = $('input[name=s_id]').val();
+    console.log(surveyId);
+    //console.log(valueForm);
+    
+
+    $.post('/question_answer_survey',{survey_id: surveyId}, function(data){
+      // console.log(data);
+      // $.get('/survey/survey_temp');
+      window.location.replace("/home");
+    });
+  
+  });
+
+});
