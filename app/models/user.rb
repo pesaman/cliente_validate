@@ -1,10 +1,6 @@
 class User < ActiveRecord::Base
   # Remember to create a migration!
    include BCrypt
-   has_many :surveys
-   has_many :estadisticas
-   has_many :answer_options, through: :estadisticas
-
    
    validates :username, presence: true
    validates :name, presence: true

@@ -1,57 +1,57 @@
-$(document).ready(function() {
-  // Este código corre después de que `document` fue cargado(loaded) 
-  // completamente. 
-  // Esto garantiza que si amarramos(bind) una función a un elemento 
-  // de HTML este exista ya en la página. 
+$( document ).ready(function() {
 
-  //create three initial fields
-    
-
-
-//create three initial fields
-var startingNo = 0;
-var $node = "";
-var startingNoAnswer = 0;
-var displayCountAnswer = 0; 
-for(varCount=0;varCount<=startingNo;varCount++){
-    var displayCount = varCount+1;
-    $node += '<p><label for="var'+displayCount+'">Question '+displayCount+': </label><input type="text" name="var_question_'+displayCount+'" id="var_question_'+displayCount+'"><span style="border:solid 1px ; background-color: #B2BABB; color:black" class="removeVar">Add Answer</span></p>';
-}
-//add them to the DOM
-$('#form_questions').prepend($node);
-//remove a textfield
-$('#form_questions').on('click', '.removeVar', function(){
-      
-      var $node_answer = "";
-      
-      displayCountAnswer = displayCountAnswer + 1;
-      $node_answer += '<p><label for="var'+displayCountAnswer+'">&nbsp; &nbsp; &nbsp; &nbsp; Answer '+displayCountAnswer+': </label><input type="text" name="var_answer_'+displayCountAnswer+'" id="var_Answer_'+displayCountAnswer+'">';
-      
-      $(this).parent().append($node_answer);
-});
-//add a new node
-$('#addVar').on('click', function(){
-varCount++;
-$node = '<p><label for="var'+varCount+'">Question '+varCount+': </label><input type="text" name="var_question_'+varCount+'" id="var_question_'+varCount+'"><span style="border:solid 1px ; background-color: #B2BABB; color:black" class="removeVar">Add Answer</span></p>';
-$(this).parent().before($node);
-displayCountAnswer = 0; 
-});
-
-
-  $( "#form_questions" ).on( "submit", function( event ) {
-    event.preventDefault();
-    value_form =  $( this ).serialize();
-    // surveyId = $('input[name=s_id]').val();
-    // console.log(surveyId);
-    console.log(value_form);
-    
-
-    $.post("/question_answer_survey", {user_input: value_form}, function(data){
-      // console.log(data);
-      // $.get('/survey/survey_temp');
-      window.location.replace("/home");
-    });
-  
+  $("form").submit(function(e){
+    e.preventDefault();
+    $('li').remove();
+    validate();
   });
+
+  function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    if (!re.test(email)) {
+      $("#result").append("<li>" +email+ " no es un email valido </li>");
+    }
+  }
+
+  function validatePassword(password){
+    var one_num = /.*\d/
+    var one_upper = /.*[A-Z]/
+    var pass_size = /[a-zA-Z0-9]{8,}$/
+    if (!one_num.test(password)){
+      $("#result").append("<li>El password debe tener al menos un numero</li>");
+      console.log("one_num");
+    }  
+    if (!one_upper.test(password)){
+      $("#result").append("<li>El password debe tener al menos una mayuscula</li>");
+      console.log("one_upper");
+    }
+    if (!pass_size.test(password)){
+      $("#result").append("<li>El password debe tener al menos 8 caracteres</li>");
+      console.log("pass_size");
+    } 
+    if ((one_num.test(password)) & (one_upper.test(password)) & (pass_size.test(password))){
+      
+       $( "form" ).on( "submit", function( event ) {
+        event.preventDefault();
+        value_form =  $( this ).serialize();
+        console.log(value_form);
+          $.post("/signup", value_form, function(data){
+            
+            // window.location.replace("/home");
+          });
+      });
+
+    } 
+  }
+
+  function validate() {
+    var email = $("#email").val();
+    var pass = $("#password").val();
+    console.log("Email = " + email + "  password = " + pass);  
+    validateEmail(email);
+    validatePassword(pass);
+  }
+
+
 
 });

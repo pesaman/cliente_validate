@@ -13,12 +13,7 @@ get '/loogin' do
 end
 
 get "/home" do
-  erb :survey
-end
-
-get "/user_profile" do
-  p "12a" *50
-  erb :profile
+ 
 end
 
 before '/home' do
@@ -35,6 +30,7 @@ get '/logout' do
 end
 
 post '/signup' do
+  p params
   username = params[:username]
   name = params[:name]
   email = params[:email]

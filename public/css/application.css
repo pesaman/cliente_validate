@@ -35,7 +35,7 @@ h4 {
 div #slot-machine {
   width: 306px;
   height: 331px;
-  background: url("../mono.jpg") no-repeat;
+  background: url("../123.png") no-repeat;
   margin: 0 auto;
   
 }
@@ -63,6 +63,18 @@ form, fieldset {
 }
 
 .warning {
+  margin: 20px auto;
+  display: block;
+  border: none;
+  color : black;
+  text-align: center;
+  font-weight: 400;
+  font-size: 18px;
+  background-color: #FFBABA;
+  width: 600px;
+}
+
+#result {
   margin: 20px auto;
   display: block;
   border: none;
